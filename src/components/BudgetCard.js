@@ -1,8 +1,14 @@
 import { Button, Card, ProgressBar, Stack } from "react-bootstrap";
 import { currencyFormatter } from "../utils";
 
-export default function BudgetCard({name,amount,max}) {
-  return <Card>
+export default function BudgetCard({name,amount,max, gray}) {
+  const classNames = []
+  if (amount > max) {
+    classNames.push("bg-danger","bg-opacity-10")
+  } else if (gray) {
+    classNames.push("bg-light")
+  }
+  return <Card className={classNames.join(" ")}>
       <Card.Body>
           <Card.Title>
             <div>{name}</div>  
