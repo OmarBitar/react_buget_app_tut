@@ -1,8 +1,11 @@
 import { Container, Row, Col, Stack, Button } from "react-bootstrap";
+import { useBudgets } from "./contexts/BudgetsContexts";
 import BudgetCard from "./components/BudgetCard";
 
 function App() {
+const helloWorld = useBudgets()
   return <Container className="my-4">
+            {helloWorld()}
             <Stack direction="horizontal" gap={2} className="mb-4 ">
               <h1 className="me-auto">Budget</h1>
               <Button variant="primary">Add Budget</Button>
